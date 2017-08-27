@@ -53,7 +53,7 @@ exercise1 = animationOf trafficLightAnimation
 -- Exercise 2
 
 tree :: Picture -> Integer -> Picture
-tree b 0 = blank
+tree _ 0 = blank
 tree b n = path [(0,0),(0,1)] & translated 0 1 b & translated 0 1 (
   rotated (pi/10) (tree b (n-1)) & rotated (- pi/10) (tree b (n-1)))
 
@@ -64,7 +64,7 @@ blossom t
 
 bloomingTree :: Double -> Picture
 bloomingTree t = tree (blossom t) 8
-  
+
 exercise2 :: IO ()
 exercise2 = animationOf bloomingTree
 
@@ -74,7 +74,7 @@ wall, ground, storage, box :: Picture
 wall       = colored (gray 0.3) (solidRectangle 1 1)
 ground     = colored black (solidRectangle 1 1)
 storageDot = colored orange (solidCircle 0.2)
-storage    = storageDot & colored black (solidRectangle 1 1) 
+storage    = storageDot & colored black (solidRectangle 1 1)
 box        = colored brown (solidRectangle 1 1)
 
 drawTile :: Integer -> Picture
@@ -89,19 +89,19 @@ drawRows 11 = blank
 drawRows y  = drawColumns y (-10) & drawRows (y + 1)
 
 drawColumns :: Integer -> Integer -> Picture
-drawColumns y 11 = blank
+drawColumns _ 11 = blank
 drawColumns y x  = drawTileAt x y & drawColumns y (x + 1)
 
 drawTileAt :: Integer -> Integer -> Picture
 drawTileAt x y = translated (fromIntegral x) (fromIntegral y) (drawTile (maze x y))
-         
+
 pictureOfMaze :: Picture
 pictureOfMaze = drawRows (-10)
 
 exercise3 :: IO ()
 exercise3 = drawingOf pictureOfMaze
-         
-maze :: Integer -> Integer -> Integer 
+
+maze :: Integer -> Integer -> Integer
 maze x y
   | abs x > 4  || abs y > 4  = 0
   | abs x == 4 || abs y == 4 = 1
