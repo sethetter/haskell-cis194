@@ -15,9 +15,8 @@ cabal-version:       >=1.10
 
 library
   hs-source-dirs:      src
-  exposed-modules:     LectureWeek01
-                     , HomeworkWeek01
-                     , LectureWeek02
+  exposed-modules:     HomeworkWeek01
+                     , HomeworkWeek02
   build-depends:       base >= 4.7 && < 5
                      , codeworld-api >= 0.2.1.0
   default-language:    Haskell2010

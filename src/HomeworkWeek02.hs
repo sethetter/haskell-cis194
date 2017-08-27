@@ -1,13 +1,11 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# OPTIONS_GHC -fno-warn-warnings-deprecations -fno-warn-unused-binds #-}
 
-module LectureWeek02
-  ( mainLectureWeek02
+module HomeworkWeek02
+  ( mainHomeworkWeek02
   ) where
 
 import CodeWorld
-
--- TODO: Code through lecture examples for practice!
 
 type WorldState = (Direction, Coord)
 
@@ -133,5 +131,5 @@ resetableInteractionOf is ht he = interactionOf is ht (resetOnEsc he)
     resetOnEsc _ (KeyPress "Esc") _ = initialState
     resetOnEsc handler e prev = handler e prev
 
-mainLectureWeek02 :: IO ()
-mainLectureWeek02 = resetableInteractionOf initialState handleTime handleEvent drawState
+mainHomeworkWeek02 :: IO ()
+mainHomeworkWeek02 = resetableInteractionOf initialState handleTime handleEvent drawState

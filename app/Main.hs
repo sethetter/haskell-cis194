@@ -1,9 +1,7 @@
 module Main where
 
--- import LectureWeek01
 -- import HomeworkWeek01
-
-import LectureWeek02
+import HomeworkWeek02
 
 main :: IO ()
-main = mainLectureWeek02
+main = mainHomeworkWeek02
